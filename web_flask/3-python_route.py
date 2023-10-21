@@ -22,10 +22,11 @@ def display_c(text):
     return f"C {text}"
 
 
+@app.route('/python/', defaults={'text':'is cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def display_python_is_cool(text):
     """replace underscore with spaces in the text variables"""
-    text = text.replace('_', 'is cool')
+    text = text.replace('_', ' ')
     return f"Python {text}"
 
 if __name__ == "__main__":
