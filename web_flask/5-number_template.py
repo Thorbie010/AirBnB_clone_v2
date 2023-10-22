@@ -32,7 +32,7 @@ def display_python_is_cool(text):
     return f"Python {text}"
 
 
-@app.route('/number/<int:n', strict_slashes=False)
+@app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
     """displaying HTML page if only n is a integer"""
     if isinstance(n, int):
