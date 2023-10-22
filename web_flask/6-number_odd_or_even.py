@@ -34,19 +34,24 @@ def display_python_is_cool(text):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
-    """displays n is a number only is n is an integer"""
+    """displaying HTML page if only n is a integer"""
     if isinstance(n, int):
         return f"{n} is a number"
     else:
         return "Not a valid integer"
-
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
     """displaying HTML page if only n is a integer"""
     if isinstance(n, int):
         return render_template('5-number.html', n=n)
+    
 
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def odd_or_even(n):
+    if isinstance(n, int):
+        y = "even" if n %2 == 0 else "odd"
+        return render_template('6-number_odd_or_even.html', n=n, y=y)
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
