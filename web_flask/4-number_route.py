@@ -31,5 +31,14 @@ def display_python_is_cool(text):
     text = text.replace('_', ' ')
     return f"Python {text}"
 
+
+@app.route('/number/<int:n', strict_slashes=False)
+def number(n):
+    """displaying HTML page if only n is a integer"""
+    if isinstance(n, int):
+        return f"{n} is a number"
+    else:
+        return "Not a valid integer"
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
